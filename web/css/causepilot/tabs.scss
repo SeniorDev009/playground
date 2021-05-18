@@ -1,0 +1,79 @@
+.tabs-container {
+    overflow-x: auto;
+
+    .tabs {
+        align-items: end;
+        border-bottom: 0.125rem solid $color-gray-00;
+        display: flex;
+        margin-bottom: 1.5rem;
+        padding: 0;
+
+        .tab {
+            border-bottom: 0.25rem solid transparent;
+            color: $color-gray-20;
+            cursor: pointer;
+            flex-grow: 1;
+            font-family: 'Montserrat', 'Open Sans', Sans-serif;
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-bottom: -0.125rem;
+            padding: 0.75rem 0;
+            text-align: center;
+
+            a {
+                color: $color-gray-20;
+            }
+
+            &.active {
+                border-bottom-color: $color-power-blue;
+                color: $color-power-blue;
+
+                a {
+                    color: $color-power-blue;
+                }
+            }
+
+            .manage-toolkit & {
+                padding: 0;
+                margin-right: 1.5rem;
+                flex-grow: 0;
+
+                &:not(.active) {
+                    border-bottom-color: transparent;
+
+                    &:hover {
+                        border-bottom-color: $color-gray-20;
+
+                        a {
+                            text-decoration: none;
+                        }
+                    }
+                }
+
+                a {
+                    padding: 0.75rem 0;
+                    text-decoration: none;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+
+        .manage-toolkit & {
+            border-bottom: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    .tabs-content {
+        .tab-content {
+            display: none;
+
+            &.active {
+                display: block;
+            }
+        }
+    }
+}

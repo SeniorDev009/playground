@@ -1,0 +1,38 @@
+.dropdown {
+    button {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+
+        &:after {
+            display: none;
+        }
+    }
+
+    .dropdown-toggle {
+        cursor: pointer;
+
+        &.no-caret:after {
+            display: none;
+        }
+    }
+
+    .dropdown-menu {
+        border-color: $color-gray-20;
+        box-shadow: 0 0.1875rem 0.1875rem $color-gray-20;
+        font-size: 0.875rem;
+
+        .dropdown-item {
+            cursor: pointer;
+            padding: 0.375rem 1rem !important;
+
+            &:hover {
+                background-color: $color-gray-00;
+            }
+        }
+    }
+
+    &.open .dropdown-menu {
+        display: block;
+    }
+}

@@ -1,0 +1,100 @@
+{% if organization is defined or (campaign is defined and campaign is not null) %}
+    {% set pageType = campaign is defined and campaign is not null ? campaign : organization %}
+    {% set logoRoute = campaign is defined and campaign is not null ? path('campaign_home', { orgSlug: organization.slug, campaignSlug: campaign.slug }) : path('organization_home', { orgSlug: organization.slug }) %}
+    {% set orgRoute = path('organization_manage_dashboard', { orgSlug: organization.slug }) %}
+{% endif %}
+
+<header id="header" class="header navbar navbar-default" role="navigation">
+    <div class="header-top d-flex align-items-center justify-content-between">
+        {% if not isToolkit and logoRoute is defined and (not isAccountPage is defined or not isAccountPage) %}
+            <div class="logo">
+                <a href="{{ logoRoute }}">
+                    <img src="{{ asset('img/logo/color_logo_nowings.svg') }}" height="24" />
+                </a>
+            </div>
+        {% endif %}
+
+        {% if isToolkit and organization is defined %}
+            <div class="toolkit-breadcrumbs d-flex align-items-center">
+                <a class="menu-toggle mr-3" href="#">
+                    <i class="fas fa-bars icon"></i>
+                </a>
+                {% if is_granted('MANAGE', organization) and campaign is not defined  %}
+                    <a id="step1" class="organization-link d-none d-md-block" href="{{ orgRoute }}">{{ organization.name }}</a>
+                {% elseif is_granted('MANAGE', organization) %}
+                    <a id="step1" class="organization-link d-none d-md-block" href="{{ orgRoute }}">Dashboard</a>
+                {% else %}
+                {% endif %}
+                {% if campaign is defined and campaign is not null %}
+                    {% if is_granted('MANAGE', organization) %}
+                        <div class="sep d-none d-md-block">/</div>
+                    {% endif %}
+                    <a class="campaign-link" href="{{ path('campaign_home', { orgSlug: organization.slug, campaignSlug: campaign.slug }) }}">View Live Site</a>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {% if isAccountPage is defined and isAccountPage %}
+            {% if app.session.has('viewed_campaign') %}
+                {% set campaignData = app.session.get('viewed_campaign') %}
+                <div class="toolkit-breadcrumbs d-flex align-items-center">
+                    <a class="campaign-link" href="{{ path('campaign_home', {orgSlug: campaignData.organization.slug, campaignSlug: campaignData.slug}) }}">
+                        <i class="fas fa-arrow-left mr-1"></i>Return to {{ campaignData.name }}
+                    </a>
+                </div>
+            {% elseif app.session.has('viewed_organization')%}
+                {% set orgData = app.session.get('viewed_organization') %}
+                <div class="toolkit-breadcrumbs d-flex align-items-center">
+                    <a class="organization-link" href="{{ path('organization_home', {orgSlug: orgData.slug}) }}">
+                        <i class="fas fa-arrow-left mr-1"></i>Return to {{ orgData.name }}
+                    </a>
+                </div>
+            {% else %}
+                <div></div>
+            {% endif %}
+        {% endif %}
+
+        <ul class="account-links">
+            {% if (campaign is defined and is_granted('MANAGE', campaign)) or  (organization is defined and is_granted('MANAGE', organization)) %}
+                <li class="has-icon">
+                    <a href="{{ user_freshdesk_url(app.user, adminUrl|default(false)) }}" target="_blank" id="step8" class="d-flex align-items-center">
+                        {% include 'BidcozCoreBundle:Components:icon.html.twig' with { icon: 'question-outline', h: '1.5rem', w: '1.5rem' } %}
+                    </a>
+                </li>
+            {% elseif campaign is defined and campaign is not null %}
+                {% include 'BidcozCoreBundle:Layout/Blocks:menu/campaign.html.twig' %}
+            {% endif %}
+
+            {% include 'BidcozCoreBundle:Layout/Blocks:menu/user.html.twig' %}
+        </ul>
+    </div>
+
+    {% if campaign is defined and campaign is not null and not isToolkit %}
+        <div class="campaign-navigation d-flex justify-content-between align-items-center">
+            {% if campaign.logo %}
+                <div class="campaign-logo flex-shrink-0">
+                    <img src="" class="logo" />
+                </div>
+            {% endif %}
+
+            <div class="campaign-name-container flex-grow-1">
+                <h4 class="campaign-name">
+                    <a href="{{ path('campaign_home', campaignParams) }}">
+                        {{ campaign.name }}
+                    </a>
+                </h4>
+            </div>
+
+            <div class="campaign-navigation-links flex-shrink-0">
+                <a href="#" class="campaign-navigation-links-toggle d-lg-none">
+                    <i class="fas fa-bars"></i>
+                </a>
+                <ul class="navigation-links align-items-center justify-content-end d-none d-lg-flex">
+                    {% if campaign is defined and campaign is not null %}
+                        {% include 'BidcozCoreBundle:Layout/Blocks:menu/auction.html.twig' %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+</header>

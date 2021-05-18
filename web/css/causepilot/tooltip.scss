@@ -1,0 +1,89 @@
+.tooltip {
+    background-color: $color-power-blue;
+    border-radius: 0.375rem;
+    bottom: 100%;
+    color: $color-white;
+    display: none;
+    font-size: 0.75rem;
+    font-weight: normal;
+    left: 0;
+    margin-bottom: 0.625rem;
+    padding: 0.5625rem 0.75rem;
+    position: absolute;
+    z-index: 1;
+
+    &:before {
+        border-top: 0.625rem solid $color-power-blue;
+        border-left: 0.625rem solid transparent;
+        border-right: 0.625rem solid transparent;
+        content: '';
+        left: 1rem;
+        max-width: 13.25rem;
+        position: absolute;
+        top: 100%;
+    }
+
+    &.tooltip-center {
+        left: 50%;
+        text-align: center;
+        transform: translateX(calc(-50% + 0.5px));
+
+        &:before {
+            left: 50%;
+            margin-left: -0.625rem;
+        }
+    }
+
+    &.tooltip-below {
+        bottom: auto;
+        top: 100%;
+        margin-bottom: 0;
+        margin-top: 0.625rem;
+
+        &:before {
+            top: auto;
+            bottom: 100%;
+            border-top: 0;
+            border-bottom: 0.625rem solid $color-power-blue;
+        }
+    }
+
+    &.tooltip-right {
+        bottom: auto;
+        top: 50%;
+        left: 100%;
+        margin-bottom: 0;
+        margin-top: -1.3125rem;
+        margin-left: 0.75rem;
+
+        &:before {
+            top: 50%;
+            bottom: auto;
+            border-bottom: 0.625rem solid transparent;
+            border-right: 0.625rem solid $color-power-blue;
+            border-top: 0.625rem solid transparent;
+            border-left: 0;
+            margin-top: -0.625rem;
+            left: -0.625rem;
+        }
+    }
+}
+
+.tooltip-container {
+    position: relative;
+
+    .tooltip-trigger {
+        cursor: pointer;
+
+        &:hover ~ .tooltip {
+            display: block;
+        }
+
+        .icon {
+            color: $color-gray-30;
+            height: 1rem;
+            width: 1rem;
+            margin: 0 0.125rem;
+        }
+    }
+}

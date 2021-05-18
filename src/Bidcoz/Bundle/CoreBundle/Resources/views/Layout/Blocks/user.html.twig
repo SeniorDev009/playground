@@ -1,0 +1,10 @@
+<script>
+    Bidcoz = {};
+    Bidcoz.User = {};
+
+    {% if is_logged_in() %}
+        Bidcoz.User.email = '{{ app.user.email }}';
+        Bidcoz.User.firstName = '{{ app.user.firstName }}';
+        Bidcoz.User.lastName = '{{ app.user.lastName }}';
+    {% endif %}
+</script>

@@ -1,0 +1,98 @@
+{% spaceless %}
+    {% set numberOfMessages = 0 %}
+
+    {% if translation_domain is not defined %}
+        {% set translation_domain = null %}
+    {% endif %}
+
+    {% if close is not defined %}
+        {% set close = false %}
+    {% endif %}
+
+    {% for flashMessage in app.session.flashbag.get('alert') %}
+        <div class="alert warning d-flex">
+            <div class="message flex-grow-1 text-nowrap">
+                {{ flashMessage|trans({}, translation_domain) }}
+            </div>
+            {% if close %}
+                <a href="#" class="close">
+                    {% include 'BidcozCoreBundle:Components:icon.html.twig' with { icon: 'close', class: 'icon-sm' } %}
+                </a>
+            {% endif %}
+        </div>
+
+        {% set numberOfMessages = numberOfMessages + 1 %}
+    {% endfor %}
+
+    {% for flashMessage in app.session.flashbag.get('danger') %}
+        <div class="alert danger d-flex">
+            <div class="message flex-grow-1 text-nowrap">
+                {{ flashMessage|trans({}, translation_domain) }}
+            </div>
+            {% if close %}
+                <a href="#" class="close">
+                    {% include 'BidcozCoreBundle:Components:icon.html.twig' with { icon: 'close', class: 'icon-sm' } %}
+                </a>
+            {% endif %}
+        </div>
+
+        {% set numberOfMessages = numberOfMessages + 1 %}
+    {% endfor %}
+
+    {% for flashMessage in app.session.flashbag.get('info') %}
+        <div class="alert info d-flex">
+            <div class="message flex-grow-1 text-nowrap">
+                {{ flashMessage|trans({}, translation_domain) }}
+            </div>
+            {% if close %}
+                <a href="#" class="close">
+                    {% include 'BidcozCoreBundle:Components:icon.html.twig' with { icon: 'close', class: 'icon-sm' } %}
+                </a>
+            {% endif %}
+        </div>
+
+        {% set numberOfMessages = numberOfMessages + 1 %}
+    {% endfor %}
+
+    {% for flashMessage in app.session.flashbag.get('success') %}
+        <div class="alert success d-flex">
+            <div class="message flex-grow-1 text-nowrap">
+                {{ flashMessage|trans({}, translation_domain) }}
+            </div>
+            {% if close %}
+                <a href="#" class="close">
+                    {% include 'BidcozCoreBundle:Components:icon.html.twig' with { icon: 'close', class: 'icon-sm' } %}
+                </a>
+            {% endif %}
+        </div>
+
+        {% set numberOfMessages = numberOfMessages + 1 %}
+    {% endfor %}
+
+    {% for flashMessage in app.session.flashbag.get('warning') %}
+        <div class="alert warning d-flex">
+            <div class="message flex-grow-1 text-nowrap">
+                {{ flashMessage|trans({}, translation_domain) }}
+            </div>
+            {% if close %}
+                <a href="#" class="close">
+                    {% include 'BidcozCoreBundle:Components:icon.html.twig' with { icon: 'close', class: 'icon-sm' } %}
+                </a>
+            {% endif %}
+        </div>
+
+        {% set numberOfMessages = numberOfMessages + 1 %}
+    {% endfor %}
+
+    {% set route = app.request.get('_route') %}
+
+    {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
+        <div class="alert info exit-impersonation d-flex">
+            <div class="message flex-grow-1">
+                <a href="{{ path('admin_index', {'_switch_user': '_exit'}) }}">Exit impersonation</a>
+            </div>
+        </div>
+
+        {% set numberOfMessages = numberOfMessages + 1 %}
+    {% endif %}
+{% endspaceless %}

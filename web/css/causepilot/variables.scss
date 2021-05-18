@@ -1,0 +1,61 @@
+// Basics
+$color-white: #ffffff;
+$color-black: #000000;
+
+// Grayscale
+$color-gray-00: #f2f2f2;
+$color-gray-10: #dadada;
+$color-gray-20: #bdbdbd;
+$color-gray-30: #828282;
+$color-gray-40: #777777;
+$color-gray-45: #555555;
+$color-gray-50: #333333;
+$color-gray-60: $color-black;
+
+// Primaries
+$color-power-blue: #1c2b44;
+$color-maximum-blue: #39a0ca;
+$color-purple: #731dd8;
+
+// Secondaries
+$color-green: #04B735;
+$color-red: #E20F07;
+$color-blue-00: #EBF6FA;
+
+$icon-font-path: "../../../node_modules/bootstrap/fonts/";
+$global-color: $color-gray-45;
+$gray-light: #fafafa;
+$color-navy: #1c2b44;
+$color-white: #ffffff;
+
+// Brand overrides
+$brand-primary: #35404f;
+$brand-success: #e3605a;
+$brand-secondary: #4faaa5;
+$brand-info: #7eccc8;
+$brand-warning: #e07502;
+$brand-danger: #e3605a;
+$brand-default: #ededed;
+
+// Button overrides
+$btn-primary-color: #fff;
+$btn-primary-bg: $brand-primary;
+$btn-primary-border: darken($btn-primary-bg, 5%);
+$btn-success-color: #fff;
+$btn-success-bg: $brand-success;
+$btn-success-border: darken($btn-success-bg, 5%);
+$btn-info-color: #fff;
+$btn-info-bg: $brand-info;
+$btn-info-border: darken($btn-info-bg, 5%);
+$btn-warning-color: #fff;
+$btn-warning-bg: $brand-warning;
+$btn-warning-border: darken($btn-warning-bg, 5%);
+$btn-danger-color: #fff;
+$btn-danger-bg: $brand-danger;
+$btn-danger-border: darken($btn-danger-bg, 5%);
+$btn-link-disabled-color: $gray-light;
+$btn-font-weight: 700;
+
+// Padding overrides
+$padding-small-vertical: 2px;
+$padding-small-horizontal: 5px;

@@ -1,0 +1,92 @@
+div.alert {
+    border-radius: 0.25rem;
+    color: $color-white;
+    font-size: 0.875rem;
+    font-weight: bold;
+    margin: 0.75rem 0;
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.75rem 1rem;
+    position: relative;
+    text-align: left;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &.success,
+    &.alert-success {
+        background-color: $color-green;
+    }
+
+    &.danger,
+    &.alert-danger {
+        background-color: $color-red;
+    }
+
+    &.warning,
+    &.alert-warning {
+        background-color: $color-maximum-blue;
+    }
+
+    &.info,
+    &.alert-info {
+        background-color: $color-maximum-blue;
+    }
+
+    &.has-close {
+        padding-right: 2.5rem;
+    }
+
+    .title {
+        color: $color-white;
+        margin: 0 1.5rem 0 0;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .close {
+        background-color: transparent !important;
+        color: $color-white !important;
+        font-size: 2rem;
+        position: absolute;
+        right: 0.5rem;
+        top: 0.3125rem;
+    }
+
+    button,
+    .btn {
+        margin: 0;
+        height: 2.5rem;
+    }
+
+    #login-panel & {
+        .close {
+            display: none;
+        }
+    }
+}
+
+.profile-alert {
+    margin-bottom: 10px;
+}
+
+#dismiss-profile-complete {
+    margin-left: 15px;
+    min-width: auto !important;
+}
+
+.help-block {
+    ul {
+        li {
+            background-color: lightyellow;
+            font-weight: bold;
+        }
+    }
+}

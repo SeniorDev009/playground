@@ -1,0 +1,5 @@
+<span class="icon{{ class is defined and class is not null ? ' ' ~ class : '' }}">
+    <svg style="{{ h is defined and h is not null ? 'height: ' ~ h ~ '; ' : '' }}{{ w is defined and w is not null? 'width: ' ~ w ~ '; ' : '' }}">
+        <use xlink:href="/img/icons/sprite.svg#{{ icon }}" />
+    </svg>
+</span>

@@ -1,0 +1,64 @@
+{
+    "name": "causepilot/playground",
+    "license": "MIT",
+    "type": "project",
+    "description": "CausePilot",
+    "autoload": {
+        "psr-0": { "": "src/", "SymfonyStandard": "app/" },
+        "classmap": [
+            "app/AppKernel.php",
+            "app/AppCache.php"
+        ]
+    },
+    "require": {
+        "php": ">=7.4",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-gd": "*",
+        "ext-exif": "*",
+        "symfony/symfony": "~3.4",
+        "twig/twig": "~1.34",
+        "twig/extensions": "~1.3.0",
+        "symfony/twig-bridge": "^3.4",
+        "symfony/assetic-bundle": "~2.8.0",
+        "symfony/monolog-bundle": "~2.11.1",
+        "monolog/monolog": "~1.21.0",
+        "sensio/distribution-bundle": "~5.0.14",
+        "sensio/framework-extra-bundle": "~3.0.16",
+        "jms/di-extra-bundle": "~1.7.1",
+        "jms/serializer-bundle": "~2.4.0",
+        "nelmio/cors-bundle": "^1.5",
+        "friendsofphp/php-cs-fixer": "^2.16"
+    },
+    "require-dev": {
+        "sensio/generator-bundle": "*",
+        "phpstan/phpstan": "^0.7.0",
+        "phpunit/phpunit": "^8.5"
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "SymfonyStandard\\Composer::hookRootPackageInstall"
+        ],
+        "post-install-cmd": [
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles"
+        ],
+        "post-update-cmd": [
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles"
+        ]
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web"
+    }
+}

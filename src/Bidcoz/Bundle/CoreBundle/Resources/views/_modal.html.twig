@@ -1,0 +1,20 @@
+<div id="{{ id }}" class="modal fade" tabindex="-1" aria-labelledby="{{ id }}" aria-hidden="true">
+    <div class="modal-dialog {{ size }}">
+        <div class="modal-content mx-auto">
+            <div class="modal-header py-0">
+                <h4 class="modal-title mt-0">{{ title }}</h4>
+                <h5 class="modal-subtitle hidden"></h5>
+                <button type="button" class="close modal-close" data-dismiss="modal" aria-label="Close" aria-hidden="true">
+                    {{ macro.icon('close') }}
+                </button>
+            </div>
+            <div class="modal-body">
+                {{ content|raw }}
+            </div>
+            <div class="modal-footer pb-0">
+                <button type="button" class="btn btn-primary hidden" disabled="disabled">Update</button>
+                <button type="button" class="btn btn-clear modal-close" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

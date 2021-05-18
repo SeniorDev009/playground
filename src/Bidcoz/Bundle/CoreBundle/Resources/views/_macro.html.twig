@@ -1,0 +1,68 @@
+{% macro popover(title, text, placement, icon, class) %}
+
+{#    <button class="help-popover {{ class|default('') }}" role="button" data-toggle="popover" data-trigger="focus" data-placement="{{ placement|default('right') }}" data-html="true" title="{{ title }}" data-content="{{ text }}" tabindex="-1">#}
+{#        <i class="fa fa-{{ icon|default('info-circle') }}" aria-hidden="true"></i>#}
+{#    </button>#}
+{#    TODO decide which one is better #}
+    <a
+        href="javascript:void(0);"
+        class="{{ (class is defined ? ' ' ~ class : '') ~ ' hint--large hint--' ~ placement|default('right') }}"
+        aria-label="{{ text|striptags }}"
+    >
+        {% include 'BidcozCoreBundle:Components:icon.html.twig' with {icon: icon|default('info-outline')} %}
+    </a>
+
+{% endmacro %}
+
+{% macro ajax_link(href, title, submitUrl, callback, icon) %}
+    <a
+        href="{{ href }}"
+        class="ajax-form"
+        data-title="{{ title|e }}"
+        data-submit="{{ submitUrl }}"
+        data-callback="{{ callback }}"
+    >
+        {% if icon %}
+            <i class="{{ icon }}"></i>
+        {% else %}
+            <i class="fas fa-pencil-alt"></i>
+        {% endif %}
+    </a>
+{% endmacro %}
+
+{% macro checkbox(checkbox, label = null) %}
+    <input type="checkbox" id="{{ checkbox.vars.id }}" name="{{ checkbox.vars.full_name }}" {% if checkbox.vars.required %}required="required"{% endif %} {% if checkbox.vars.checked %}checked="checked"{% endif %} value="1" />
+    <label
+            for="{{ checkbox.vars.id }}"
+            {% for key,value in checkbox.vars.label_attr %}
+                {{ key }}="{{ value }}"
+            {% endfor %}
+            data-type="checkbox"
+    >
+        <div class="d-flex align-items-center">
+            <span class="fake-checkbox flex-shrink-0"></span>
+            <span class="label-text text-nowrap">{{ label|default(checkbox.vars.label)|raw }}</span>
+        </div>
+    </label>
+    {{ form_errors(checkbox) }}
+    {% set checkbox = checkbox.setRendered() %}
+{% endmacro %}
+
+{% macro modal(id, title='', content = null, size='') %}
+    {% import _self as macro  %}
+    {% include 'BidcozCoreBundle::_modal.html.twig' %}
+{% endmacro %}
+
+{% macro ajaxModal() %}
+    {% import _self as macro  %}
+    {{ macro.modal('ajax-modal','','Content loading...') }}
+{% endmacro %}
+
+{% macro userLookup() %}
+    {% import _self as macro  %}
+    {{ macro.modal('user-lookup-modal','Contact Lookup','Loading Contacts...', 'modal-lg') }}
+{% endmacro %}
+
+{% macro icon(icon, class=null, w=null, h=null) %}
+    {% include 'BidcozCoreBundle:Components:icon.html.twig'%}
+{% endmacro %}

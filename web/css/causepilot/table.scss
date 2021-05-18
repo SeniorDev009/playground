@@ -1,0 +1,285 @@
+.table-filters {
+    h6 {
+        margin-right: 1rem;
+        margin-bottom: 0 !important;
+    }
+
+    .form-group {
+        position: relative;
+        padding: 0 0.5rem 0 0;
+        display: inline-block;
+
+        label:not([data-type="checkbox"]) {
+            position: absolute;
+            top: 0.375rem;
+            left: 0.5rem;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            line-height: 0.5625rem;
+            font-size: 0.5625rem;
+            text-transform: uppercase;
+            width: auto;
+        }
+
+        select {
+            height: 2.25rem !important;
+            padding: 0.75rem 2rem 0 0.375rem;
+            width: auto;
+            background-color: transparent;
+            line-height: 1 !important;
+            border-radius: 0.25rem !important;
+        }
+
+        input {
+            height: 2.25rem !important;
+            padding: 0.75rem 3rem 0 0.375rem;
+            border-radius: 0.25rem;
+        }
+    }
+
+    .has-checkbox {
+        border: 0.125rem solid $color-gray-20;
+        border-radius: 0.25rem;
+        height: 2.25rem;
+        padding: 0.25rem;
+
+        label {
+            padding-bottom: 0;
+
+            .label-text {
+                font-size: 0.8125rem;
+                padding-top: 0 !important;
+                white-space: nowrap;
+            }
+        }
+    }
+
+    .btn.btn-sm {
+        height: 2.25rem !important;
+        border-radius: 0.25rem;
+    }
+}
+
+// Lots of !important here due to overriding styles.
+.table-container {
+    &.side-scroll {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 100%;
+        table-layout: fixed;
+        width: 100%;
+
+        &.dataTable tbody tr.selected {
+            background-color: $color-blue-00;
+        }
+
+        tr td {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            &:not(.table-row-actions):not(.allow-overflow) {
+                overflow: hidden;
+            }
+            a {
+                color: $color-maximum-blue;
+            }
+            &.table-row-actions {
+                color: $color-gray-40;
+                a {
+                    color: $color-gray-40;
+                }
+            }
+            input[type="text"],
+            input[type="number"],
+            textarea {
+                height: 2.25rem !important;
+                line-height: 2.25rem !important;
+                border-radius: 0.25rem !important;
+            }
+
+            textarea {
+                font-size: 0.875rem;
+                font-family: Arial, Sans-serif;
+                line-height: 1.5rem !important;
+                min-height: 2.25rem !important;
+                padding: 0.25rem 1rem;
+            }
+
+            .select2 .select2-selection {
+                height: 2.25rem !important;
+                border: 0.125rem solid $color-gray-20 !important;
+                border-radius: 0.25rem !important;
+            }
+        }
+
+        tfoot th {
+            font-size: 0.875rem !important;
+        }
+    }
+
+    button.btn-tertiary {
+        background-color: $color-maximum-blue !important;
+    }
+
+    button,
+    .btn,
+    .dt-buttons .btn-default,
+    .pagination .paginate_button a {
+        height: 2.25rem !important;
+        line-height: 2.25rem !important;
+        padding: 0 0.75rem !important;
+        border-radius: 0.25rem !important;
+        border: 0 !important;
+        width: auto !important;
+        min-width: 0 !important;
+
+        &.btn-secondary {
+            border: 0.125rem solid $color-purple !important;
+        }
+    }
+
+    .user-lookup-container,
+    .input-group {
+        input,
+        .input-group-addon {
+            height: 2.25rem !important;
+            line-height: 2.25rem !important;
+        }
+
+        input {
+            border: 0.125rem solid $color-gray-20 !important;
+        }
+
+        .input-group-addon {
+            line-height: 2.25 !important;
+        }
+
+        .input-group-btn {
+            border-radius: 0 0.125rem 0.125rem 0;
+        }
+    }
+
+    .input-group {
+        padding: 0;
+    }
+
+    input[type="search"] {
+        padding: 0 0.5rem !important;
+        height: 2.25rem !important;
+        line-height: 2.25rem !important;
+        border: 0.125rem solid $color-gray-20 !important;
+        border-radius: 0.25rem !important;
+    }
+
+    input[type="checkbox"] {
+        border-color: $color-gray-20;
+        height: 1.25rem;
+        width: 1.25rem;
+    }
+
+    .dataTables_wrapper {
+        > .row {
+            padding-bottom: 1rem !important;
+
+            > .col-sm-12 {
+                overflow-x: auto;
+            }
+        }
+
+        .pagination {
+            margin-top: -1rem !important;
+        }
+
+        .dataTables_info {
+            margin-top: -0.5rem !important;
+        }
+
+        .xxx {
+            display: flex !important;
+            align-items: center !important
+        }
+
+        .dataTable tfoot th,
+        .dataTable tfoot td {
+            border-top-color: $color-gray-10;
+        }
+
+        .dataTable tfoot th {
+            font-size: 0.875rem !important;
+        }
+    }
+
+    .table-sort select {
+        margin: 0 0.125rem;
+        padding: 0.5rem 0.25rem;
+    }
+
+    .table-actions .dt-buttons {
+        display: block !important;
+        padding: 0 !important;
+
+        button {
+            background-color: transparent !important;
+            border-radius: 0 !important;
+            border: 0 !important;
+            border-color: transparent !important;
+            color: $color-gray-60 !important;
+            display: block !important;
+            font-size: 0.875rem !important;
+            font-weight: normal !important;
+            text-align: left !important;
+            width: 100% !important;
+
+            &:hover {
+                background-color: $color-gray-00 !important;
+            }
+        }
+    }
+
+    .dataTables_length {
+        > label {
+            margin-right: 1rem;
+        }
+        select {
+            border-color: $color-gray-10 !important;
+            background-color: $color-gray-00 !important;
+            border-radius: 0.25rem !important;
+        }
+    }
+
+    .pagination .paginate_button {
+        padding: 0 !important;
+        background-color: transparent !important;
+        border-width: 0.125rem !important;
+
+        &:hover {
+            background: transparent !important;
+            border-color: $color-power-blue !important;
+            border-radius: 0.375rem !important;
+        }
+
+        a {
+            margin-left: 0 !important;
+        }
+
+        &:not(.active) a {
+            background-color: transparent !important;
+            color: $color-gray-50 !important;
+        }
+    }
+
+    + .panel-footer {
+        font-size: 1rem;
+        padding: 0 0.5rem;
+    }
+}
+
+@include media-breakpoint-down('sm') {
+    #table-search,
+    #table-search input,
+    #table-search > div#result-data-table_filter,
+    #result-data-table_wrapper > div > .mt-2 + div.d-flex {
+        width: 100% !important;
+    }
+}

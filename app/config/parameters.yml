@@ -1,0 +1,10 @@
+# This file is auto-generated during the composer install
+parameters:
+    locale: en
+    secret: SecretSecretIGotASecretIAmTheModernMan
+    debug_toolbar: true
+    debug_redirects: false
+    use_assetic_controller: true
+    router.request_context.host: 127.0.0.1
+    router.request_context.scheme: http
+    mailer_transport: ~

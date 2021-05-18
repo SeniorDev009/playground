@@ -1,0 +1,61 @@
+{% extends 'BidcozCoreBundle:Layout:layout.html.twig' %}
+
+{% set orgParams = {orgSlug: organization.slug} %}
+
+{% block title %}CausePilot - {{ organization.name }}{% endblock %}
+
+{% block afterAlerts %}
+    {% if is_logged_in() %}
+        <div class="alerts">
+            {% if not app.user.hasLoggedIn %}
+                <div class="alert warning">
+                    <p>Please set your password.</p>
+                    <a href="{{ path('fos_user_change_password') }}" class="btn btn-sm mt-2 w-100">Set Password</a>
+                </div>
+            {% elseif app.user is show_mobile_update_prompt %}
+                <div class="alert warning">
+                    <p>Please complete your Account profile. A mobile number is required to receive text notifications.</p>
+                    <a href="{{ path('fos_user_profile_edit') }}" class="btn btn-sm mt-2 w-100">Update Profile</a>
+                </div>
+            {% elseif app.user is show_profile_update_prompt and organization.slug != 'nvidiafoundation' %}
+                <div class="alert warning">
+                    <p>Please complete your Account profile.</p>
+                    <a href="{{ path('fos_user_profile_edit') }}" class="btn btn-sm mt-2 w-100">Complete Profile</a>
+                    <!--
+                    <a href="{{ path('profile_dismiss_modal') }}" id="dismiss-profile-complete" class="btn alert-dismissible">
+                        <i class="fas fa-times"></i>
+                    </a>
+                    -->
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% if is_logged_in() %}
+        <div class="alerts">
+            {% set notifications = frontend_notifications() %}
+            {% for notification in notifications %}
+                <div class="alert info col-4 float-right justify-content-between">
+                    {% if notification.title %}
+                        <h4>{{ notification.title }}</h4>
+                    {% endif %}
+                    {{ notification.content }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% if organization is defined or campaign is defined %}
+        <link rel="stylesheet" href="/css/manage.css?v2">
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ macro.ajaxModal() }}
+    {{ parent() }}
+{% endblock %}

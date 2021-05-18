@@ -1,0 +1,48 @@
+version: '3.4'
+services:
+    nginx:
+        build: .docker/nginx
+        container_name: nginx
+        restart: always
+        env_file:
+            - .env
+        ports:
+            - 443:443
+            - 80:80
+        volumes:
+            - .docker/nginx/conf.d:/etc/nginx/conf.d/
+            - .docker/certs:/etc/http-certs
+            - .:/var/www/
+            - .docker/data/log/nginx:/var/log
+        depends_on:
+            - php-fpm
+        networks:
+            - app
+
+    php-fpm:
+        build: .docker/php/fpm
+        container_name: php-fpm
+        restart: always
+        env_file:
+            - .env
+        volumes:
+            - .:/var/www
+            - .docker/data/log/fpm:/var/log
+        depends_on:
+            - php-cli
+        networks:
+            - app
+
+    php-cli:
+        build: .docker/php/cli
+        container_name: php-cli
+        restart: always
+        env_file:
+            - .env
+        volumes:
+            - .:/var/www
+            - .docker/data/log/cli:/var/log
+        networks:
+            - app
+networks:
+    app:

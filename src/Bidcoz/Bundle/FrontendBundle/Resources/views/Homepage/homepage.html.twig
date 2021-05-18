@@ -1,0 +1,70 @@
+{% extends 'BidcozCoreBundle:Layout:marketing.html.twig' %}
+
+{% block meta %}<meta name="description" content=“Software to design and manage fundraising. Online auctions, event auctions, ticketed events, and campaigns.”>{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="panel h-100">
+                <div class="panel-body">
+                    <h4>Welcome to the CausePilot Playground</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="panel h-100">
+                <div class="panel-body">
+                    <h4 class="mb-5 p-1">Interested in becoming a CausePilot?</h4>
+                    
+                    <div class="actions pt-5">
+                            <a
+                                id="learn-more"
+                                class="btn full-width"
+                                type="button"
+                                href="https://www.causepilot.com"
+                                target="_blank"
+                            >
+                                Learn More
+                            </a>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="panel h-100">
+                <div class="panel-body">
+                    <h4>I'm looking for a fundraiser</h4>
+
+                    <p class="lead">Search for an event</p>
+
+                    <form action="{{ path('search') }}" class="form">
+                        <div class="form-group">
+                            <input class="form-control" name="q" type="text" placeholder="Enter event name">
+                        </div>
+
+                        <div class="actions">
+                            <button
+                                id="search_submit"
+                                class="btn full-width"
+                                type="submit"
+                            >
+                                Search
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 text-center text-white">
+            <p>
+                <b>Don't see what you are looking for?</b><br/>
+                <a href="https://www.causepilot.com/contact" target="_blank" class="font-weight-light">Contact Us</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

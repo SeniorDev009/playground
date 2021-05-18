@@ -1,0 +1,23 @@
+{% block doctype '' %}
+{% import "BidcozCoreBundle::_macro.html.twig" as macro %}
+
+<html {% block htmlattrs 'lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#"' %}>
+<head>
+    {% block head %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="google-site-verification" content="rp2BPs0jDCX6S1t5_g47A8K29nXv89EDpow-vNIafnk" />
+    {% endblock %}
+    <title>{% block title 'CausePilot' %}</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700|Open+Sans:400,700&display=swap" rel="stylesheet">
+    {% block stylesheets '' %}
+    {% block theme '' %}
+    {% block headJs '' %}
+    {% block meta '' %}
+</head>
+<body role="document" class="{% block bodyClass '' %}"{% block homepageBodyData '' %}>
+    {% block body '' %}
+    {% block javascripts '' %}
+</body>
+</html>

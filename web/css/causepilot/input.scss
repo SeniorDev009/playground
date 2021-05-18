@@ -1,0 +1,180 @@
+.control,
+.form-group {
+    padding: 0.5rem 0;
+
+    label {
+        color: $color-gray-50;
+        display: block;
+        font-size: 0.875rem;
+        padding-bottom: 0.25rem;
+        width: auto;
+    }
+
+    select,
+    .select2-selection {
+        background-color: $color-white;
+        border: 0.125rem solid $color-gray-20;
+        border-radius: 0.375rem;
+        display: block;
+        font-size: 0.875rem !important;
+        height: 3rem !important;
+        line-height: 2.75rem !important;
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    input {
+        &[type="text"],
+        &[type="email"],
+        &[type="password"],
+        &[type="number"],
+        &.input {
+            background-color: $color-white;
+            border: 0.125rem solid $color-gray-20;
+            border-radius: 0.375rem;
+            display: block;
+            font-size: 0.875rem;
+            height: 3rem;
+            line-height: 2.75rem;
+            padding: 0 1rem;
+            width: 100%;
+
+            &.has-error {
+                border-color: $color-red;
+            }
+        }
+
+        &[type="checkbox"] {
+            display: none;
+
+            + label {
+                display: flex;
+
+                .fake-checkbox {
+                    background-color: $color-white;
+                    border: 0.125rem solid $color-gray-20;
+                    border-radius: 0.375rem;
+                    color: $color-white;
+                    cursor: pointer;
+                    height: 1.5rem;
+                    margin-right: 0.5rem;
+                    text-align: center;
+                    width: 1.5rem;
+
+                    + div,
+                    + span {
+                        padding-top: 0.125rem;
+                        width: calc(100% - 2rem);
+                    }
+                }
+            }
+
+            &:checked + label .fake-checkbox {
+                background: $color-purple url('../img/icons/check.svg') no-repeat 50% 50%;
+                border-color: $color-purple;
+            }
+        }
+    }
+
+    .radio-option {
+        .radio {
+            display: inline-block;
+        }
+    }
+}
+
+.input-group {
+    display: inline-flex;
+    flex-wrap: nowrap;
+
+    label {
+        color: $color-gray-50;
+        display: block;
+        font-size: 0.875rem;
+        padding-bottom: 0.25rem;
+        width: auto;
+    }
+
+    select {
+        background-color: $color-white;
+        border: 0.125rem solid $color-gray-20;
+        border-left: none;
+        border-radius: 0.375rem;
+        display: block;
+        font-size: 0.875rem !important;
+        height: 3rem !important;
+        line-height: 2.75rem !important;
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .input-group-prepend {
+        .input-group-text {
+            position: relative;
+            left: 0.375rem;
+            border: 0.125rem solid $color-gray-20;
+            border-radius: 0.375rem;
+            border-right: none;
+            color: $color-gray-50;
+            background: none;
+        }
+    }
+
+    &-addon {
+        background-color: #eeeeee;
+        border: 0.125rem solid $color-gray-20;
+        border-right: 0;
+        border-radius: 4px 0 0 4px;
+        color: #555;
+        font-size: 14px;
+        font-weight: 400;
+        height: 3rem;
+        line-height: 2.75rem;
+        padding: 0 12px;
+        text-align: center;
+
+        + input {
+            // overriding bootstrap style.
+            border-radius: 0 0.375rem 0.375rem 0 !important;
+            border: 0.125rem solid $color-gray-20;
+            padding-left: 1.5rem;
+        }
+    }
+}
+
+.user-lookup-container {
+    .input-group input {
+        background-color: $color-white !important;
+        border: 0.125rem solid $color-gray-20 !important;
+        border-radius: 0.375rem !important;
+        font-size: 0.875rem !important;
+        height: 3rem !important;
+        line-height: 2.75rem !important; 
+        padding: 0 1rem !important;
+        width: 100% !important;
+    }
+}
+
+#text-opt-out {
+    .fake-checkbox {
+        //width: 1rem;
+        //height: 1rem;
+        align-self: flex-start !important;
+    }
+    .label-text {
+        //font-size: .75rem;
+        white-space: normal !important;
+        align-self: flex-start !important;
+    }
+}
+
+[id^="form_seats_"] {
+    background-color: #fff;
+    border: .125rem solid #bdbdbd;
+    border-radius: .375rem;
+    display: block;
+    font-size: .875rem;
+    height: 3rem;
+    line-height: 2.75rem;
+    padding: 0 1rem;
+}

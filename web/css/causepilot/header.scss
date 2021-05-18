@@ -1,0 +1,241 @@
+body {
+    padding-top: 7rem;
+
+    &.is-homepage,
+    &.no-campaign,
+    &.manage-toolkit,
+    &.is-user-profile-page {
+        padding-top: 3rem;
+
+        header {
+            height: 3rem;
+
+            .campaign-navigation {
+                display: none !important;
+            }
+
+            .sponsorships-container {
+                display: none;
+            }
+        }
+    }
+
+    &.is-user-profile-page {
+        header {
+            position: relative;
+        }
+    }
+
+    &:not(.manage-toolkit) header .header-top a:not(.btn) {
+        color: $color-gray-50 !important;
+    }
+}
+
+header {
+    background-color: $color-white;
+    height: 7rem;
+    left: 0;
+    max-width: 100%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+
+    .toolkit-breadcrumbs {
+        font-size: 0.875rem;
+
+        .menu-toggle {
+            font-size: 1.25rem;
+
+            @media screen and (min-width: 992px) {
+                display: none;
+            }
+
+            @media screen and (max-width: 499px) {
+                ~ * {
+                    display: none;
+                }
+            }
+        }
+
+        a {
+            font-family: Montserrat, 'Open Sans', Sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            line-height: 0.9375rem;
+
+            &.organization-link {
+                color: $color-maximum-blue;
+            }
+
+            &.campaign-link {
+                color: $color-gray-30;
+            }
+        }
+
+        .sep {
+            margin: 0 0.625rem;
+        }
+    }
+
+    .header-top {
+        height: 3rem;
+        padding: 0 1rem;
+        border-bottom: 1px solid $color-gray-00;
+
+        @include media-breakpoint-up('md') {
+            padding: 0 2rem;
+        }
+    }
+
+    .campaign-navigation {
+        height: 4rem;
+        padding: 0 1rem;
+        border-bottom: 1px solid $color-gray-00;
+    }
+
+    img {
+        display: block;
+    }
+
+    .auction-logo {
+        display: none;
+
+        @media screen and (max-width: 767px) {
+            display: block;
+        }
+    }
+
+    .auction-banner {
+        display: block;
+        width: 100%;
+        text-align: center;
+
+        @media screen and (max-width: 767px) {
+            display: none;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 120px;
+            height: auto;
+        }
+    }
+
+    .account-links li.has-icon a {
+        position: relative;
+        overflow: hidden;
+
+        &#alert-notification {
+            overflow: visible;
+        }
+
+        .badge {
+            background-color: $color-green;
+            border-radius: 0.25rem;
+            position: absolute;
+            padding: 0;
+            height: 0.375rem;
+            width: 0.375rem;
+            top: 0.375rem;
+            right: 0.1875rem;
+            overflow: hidden;
+            text-indent: -6.25rem;
+        }
+
+        &.user-nav-cart {
+            .badge {
+                background-color: $color-white;
+                height: auto;
+                width: auto;
+                text-indent: 0;
+                top: 0.125rem;
+            }
+            &:hover .badge {
+                background-color: $color-gray-00;
+            }
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        .navbar-toggle.sidebar-toggle {
+            float: left;
+            margin-left: 8px;
+        }
+        &.navbar {
+            margin-bottom: 0;
+        }
+    }
+
+    .navbar-collapse {
+        padding-left: 100px !important;
+
+        @media screen and (max-width: 767px) {
+            padding-left: 15px !important;
+            .navbar-nav > li > a {
+                padding-top: 7px;
+                padding-bottom: 7px;
+            }
+        }
+    }
+
+    .navbar-toggle {
+        padding: 4px 6px;
+        font-size: 14px;
+        margin-right: 8px;
+    }
+
+    .navbar-nav > li > a.caps {
+        text-transform: uppercase !important;
+    }
+
+    .header-temp {
+        position: relative;
+        max-width: 100%;
+
+        @media screen and (max-width: 767px) {
+            height: 40px;
+        }
+
+        .container {
+            position: relative;
+            height: 120px;
+
+            &.logo-container {
+                overflow: hidden;
+
+                .logo {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    -webkit-transform: translate(-50%, -50%);
+                    -moz-transform: translate(-50%, -50%);
+                    -ms-transform: translate(-50%, -50%);
+
+                    @media screen and (max-width: 767px) {
+                        img {
+                            max-height: 80px;
+                        }
+                    }
+                }
+            }
+
+            @media screen and (max-width: 767px) {
+                height: 80px;
+            }
+        }
+    }
+
+    .bubble {
+        animation: pulse 2s infinite;
+        background-color: $color-green;
+        border: 0.0625rem solid $color-white;
+        border-radius: 50%;
+        height: 0.625rem;
+        position: absolute;
+        right: 0.25rem;
+        top: 0.3125rem;
+        width: 0.625rem;
+    }
+}

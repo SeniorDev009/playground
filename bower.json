@@ -1,0 +1,17 @@
+{
+  "name": "causepilot",
+  "version": "0.0.1",
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "jReject": "~1.1.4",
+    "moment": "~2.13.0",
+    "moment-timezone": "~0.5.3",
+    "bootstrap-sweetalert": "^1.0.1",
+    "font-awesome": "^5.15.0",
+    "components-font-awesome": "^5.15.0",
+    "responsive-bootstrap-toolkit": "responsive-toolkit#^2.6.3",
+    "jquery-ui": "^1.12.1",
+    "hint.css": "^2.6.0",
+    "vue": "^2.6.12"
+  }
+}

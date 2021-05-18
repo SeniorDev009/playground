@@ -1,0 +1,11 @@
+bidcoz_frontend:
+    resource: "@BidcozFrontendBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+remove_trailing_slash:
+    path: /{url}
+    defaults: { _controller: BidcozCoreBundle:Redirecting:removeTrailingSlash }
+    requirements:
+        url: .*/$
+    methods: [GET]

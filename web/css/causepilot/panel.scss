@@ -1,0 +1,82 @@
+div.panel {
+    background-color: $color-white;
+    border-radius: 0.25rem;
+
+    div.panel-heading {
+        padding: 1rem;
+        font-size: 1.5rem;
+        line-height: normal;
+    }
+
+    div.panel-body {
+        background-color: $color-white;
+        border-radius: 0.25rem;
+        padding: 2.5rem 2rem;
+
+        .sidebar & {
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        > h1:first-child,
+        > h2:first-child,
+        > h3:first-child {
+            margin-top: 0;
+        }
+
+        &.low-pad {
+            padding: 1rem !important;
+        }
+    }
+
+    &.has-border {
+        border: 0.125rem solid $color-gray-00;
+    }
+    
+    &.sm-margin-bottom {
+        margin-bottom: .75rem !important;
+    }
+}
+
+.login-panel,
+.signup-panel {
+    width: 100%;
+
+    div.alert:first-child {
+        margin-top: -0.5rem;
+    }
+
+    h4 {
+        color: $color-power-blue;
+        margin-top: 0;
+    }
+
+    .caption {
+        padding-bottom: 2rem;
+    }
+}
+
+.login-panel {
+    max-width: 25rem;
+}
+
+.signup-panel {
+    max-width: 48rem;
+
+    h4 {
+        margin-bottom: 0.5rem;
+    }
+
+    .emphasis {
+        font-size: 1.125rem;
+        font-weight: 700;
+    }
+
+    .actions .btn {
+        width: 100%;
+
+        @include media-breakpoint-up(sm) {
+            width: 18rem;
+        }
+    }
+}

@@ -1,0 +1,33 @@
+{% extends 'BidcozCoreBundle:Layout:marketing.html.twig' %}
+
+{% block breadcrumb %}Home / Search{% endblock %}
+
+{% block content %}
+    <section class="cf full d-flex justify-content-center">
+        <div class="inner register-panel">
+            <div class="panel">
+                <div class="panel-body">
+        	        <h4>Search Results{% if q is defined %} for &ldquo;{{ q }}&rdquo;{% endif %}</h4>
+
+                    {% if error is defined %}
+                        <h6>{{ error }}</h6>
+                    {% else %}
+                        <div id="organization-results" class="search-results">
+                            <h6>Matching Nonprofits</h6>
+
+                            <ul class="list">
+                                {% if searchOrganizations|length %}
+                                    {% for o in searchOrganizations %}
+                                        <li>{{ o }}</li>
+                                    {% endfor %}
+                                {% else %}
+                                    <li>There are no matching nonprofits.</li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

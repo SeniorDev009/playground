@@ -1,0 +1,373 @@
+.auction-items {
+    .auction-item {
+        padding-left: 0.9375rem;
+        padding-right: 0.9375rem;
+        width: 100%;
+    }
+
+    &.list-view .auction-item {
+        // Medium
+        @include media-breakpoint-up('lg') {
+            width: 50%;
+        }
+
+        @include media-breakpoint-down('sm') {
+            margin-bottom: 0.5rem;
+        }
+
+        .campaign-featured & {
+            width: 100%;
+        }
+    }
+
+    &.grid-view .auction-item {
+        // Small
+        @media screen and (min-width: 576px) {
+            width: 50%;
+        }
+
+        // Medium
+        @media screen and (min-width: 768px) {
+            width: 33.3333%;
+        }
+
+        // Large and X-Large
+        @media screen and (min-width: 992px) {
+            width: 25%;
+        }
+    }
+}
+
+.auction-item-details {
+    background-color: $color-gray-00;
+    border-radius: 0.375rem;
+    color: $color-gray-50;
+    cursor: pointer;
+    display: flex;
+    line-height: 1.125rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    .name {
+        font-family: 'Montserrat', Sans-serif;
+        font-size: 1.125rem;
+        font-weight: 700;
+        line-height: 1.25;
+    }
+
+    .image {
+        background-color: $color-white;
+        border: 0.125rem solid $color-gray-00;
+        height: 10rem;
+        overflow: hidden;
+        position: relative;
+
+        img {
+            position: absolute;
+            // The following may be temporary.
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .default-icon {
+            font-size: 6.25rem;
+            color: $color-gray-20;
+        }
+    }
+
+    .info {
+        padding: 0.5rem 1rem 1rem;
+
+        > div {
+            margin-bottom: 0.25rem;
+
+            &.name {
+                font-weight: 700;
+                font-size: 1rem;
+                margin-bottom: 0.75rem;
+                text-transform: capitalize;
+            }
+        }
+
+        .icon {
+            height: 1rem;
+            width: 1rem;
+            margin-right: 0.25rem;
+        }
+    }
+
+    .actions {
+        height: 10.25rem;
+        padding: 1rem;
+        width: 11rem;
+
+        .btn {
+            min-width: 100%;
+            width: 100%;
+        }
+
+        a.edit-link {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0;
+
+            svg {
+                color: $color-gray-50;
+                margin-right: 0.25rem;
+            }
+
+            span {
+                color: $color-gray-50;
+            }
+        }
+    }
+
+    .badge {
+        background-color: $color-white;
+        border-bottom: 1.5rem solid $color-maximum-blue;
+        border-left: 1.5rem solid transparent;
+        border-radius: 0.125rem;
+        border-right: 1.5rem solid transparent;
+        color: $color-white;
+        font-size: 0.625rem;
+        font-weight: 700;
+        height: 1.5rem;
+        line-height: 1.5rem;
+        position: absolute;
+        left: -1.875rem;
+        text-align: center;
+        text-transform: uppercase;
+        top: 1.3125rem;
+        transform: rotate(-45deg);
+        width: 8rem;
+
+        &:before,
+        &:after {
+            background-color: $color-maximum-blue;
+            content: '';
+            height: 2rem;
+            position: absolute;
+            width: 0.1875rem;
+        }
+
+        &:before {
+            left: -.75rem;
+            top: -.125rem;
+            transform: rotate(45deg);
+        }
+
+        &:after {
+            right: -.75rem;
+            top: -.125rem;
+            transform: rotate(-45deg);
+        }
+    }
+
+    .list-view & {
+        height: 100%;
+
+        @include media-breakpoint-up('md') {
+            height: calc(100% - 1.5rem);
+        }
+
+        .image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.375rem 0 0 0.375rem;
+            width: 25%;
+            height: 100%;
+            flex-shrink: 0;
+
+            @include media-breakpoint-up('md') {
+                width: 10rem;
+            }
+
+            img {
+                max-height: 100%;
+                max-width: 100%;
+                top: 50%;
+                left: 50%;
+                transform: translate(calc(-50% + 0.5px), calc(-50% + 0.5px));
+            }
+        }
+
+        .actions {
+            flex-shrink: 0;
+
+            @include media-breakpoint-down('sm') {
+                display: none !important;
+            }
+        }
+    }
+
+    .grid-view & {
+        flex-direction: column;
+        height: 26rem;
+
+        > div:not(.badge) {
+            width: 100%;
+        }
+
+        .image {
+            border-radius: 0.375rem 0.375rem 0 0;
+            width: 100%;
+
+            a {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                overflow: hidden;
+                padding: 0;
+                height: 100%;
+                width: 100%;
+            }
+
+            // img {
+            //     object-fit: fill;
+            //     width: inherit;
+            // }
+        }
+
+        .info .thumbnails {
+            a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 0.25rem;
+                overflow: hidden;
+                height: 2.5rem;
+                width: 2.5rem;
+                border-radius: 0.25rem;
+                border: 0.125rem solid $color-gray-20;
+                background-color: $color-white;
+
+                img {
+                    max-width: 100%;
+                    max-height: 100%;
+                }
+            }
+        }
+
+        .actions {
+            height: auto;
+            padding-top: 0;
+
+            .btn {
+                height: 3rem;
+            }
+
+            a.edit-link {
+                justify-content: center !important;
+                padding-top: 1rem;
+            }
+        }
+    }
+}
+
+.item-details-row {
+    .item-details-left {
+        @include media-breakpoint-down('sm') {
+            margin-top: 1rem;
+        }
+
+        .input-group {
+            width: 100%;
+        }
+
+        .max-bid-trigger {
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .wishlist-container button.btn {
+            font-size: 0.75rem !important;
+            padding: 0 !important;
+            height: auto !important;
+            min-width: 0 !important;
+            margin: 0 !important;
+            .fa-eye {
+                color: $color-gray-50;
+                font-size: 1.25rem !important;
+            }
+        }
+
+        .time-box {
+            font-size: 0.75rem !important;
+            line-height: 1 !important;
+            padding-left: 0.25rem !important;
+            > div {
+                line-height: 0.75rem !important;
+                margin-left: -0.125rem;
+                margin-top: 0 !important;
+                text-transform: lowercase !important;
+            }
+        }
+
+        .edit-link-text {
+            font-size: 0.75rem;
+        }
+
+        .packaged-items {
+            .item_photo_thumbnails_box {
+                display: none;
+            }
+        }
+    }
+}
+
+.carousel-items {
+    * {
+        &:focus {
+            border: 0;
+            outline: 0;
+        }
+    }
+    .slick-prev,
+    .slick-next {
+        align-items: center;
+        background-color: $color-white;
+        box-shadow: 0 0.125rem 0.125rem $color-gray-20;
+        display: flex;
+        font-size: 2rem;
+        height: 4rem;
+        justify-content: center;
+        margin-top: -2rem;
+        position: absolute;
+        top: 50%;
+        width: 4rem;
+        z-index: 1;
+    }
+
+    .slick-prev {
+        left: -2.125rem;
+    }
+    .slick-next {
+        right: -2.125rem;
+    }
+
+    .auction-item {
+        .name {
+            display: block;
+            padding: 0.5rem 0;
+        }
+
+        .info,
+        .actions {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+    }
+}
+
+.item-image {
+    border-bottom: 1px solid $color-gray-00;
+    img {
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,40 @@
+.icon {
+    align-items: center;
+    display: flex;
+    height: 1.5rem;
+    justify-content: center;
+    width: 1.5rem;
+
+    svg {
+        fill: $color-gray-30;
+        font-size: inherit;
+        height: 100%;
+        width: auto;
+    }
+
+    &.icon-sm {
+        height: 1rem;
+        width: 1rem;
+    }
+
+    &.icon-lg {
+        height: 2rem;
+        width: 2rem;
+    }
+
+    &.icon-xl {
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+
+    &.circle {
+        border: 0.125rem solid currentColor;
+        border-radius: 50%;
+    }
+
+    &:not(.circle) {
+        td & {
+            font-size: 1.25rem;
+        }
+    }
+}

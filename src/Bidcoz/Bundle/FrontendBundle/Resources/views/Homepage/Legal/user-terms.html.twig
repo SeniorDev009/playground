@@ -1,0 +1,12 @@
+{% extends 'BidcozCoreBundle:Layout:marketing.html.twig' %}
+
+{% block title 'User Terms of Service' %}
+{% block breadcrumb %}Home / Legal{% endblock %}
+
+{% block content %}
+    <section class="cf full">
+		<div class="inner">
+            {{ terms.content|raw }}
+        </div>
+    </section>
+{% endblock %}

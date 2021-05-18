@@ -1,0 +1,35 @@
+.list-group {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        cursor: pointer;
+        border-radius: 0.375rem;
+        border: 0.125rem solid $color-gray-10;
+        background-color: $color-white;
+
+        > * {
+            padding: 0 0.5rem;
+        }
+
+        .item-number {
+            width: 7%;
+        }
+
+        .type {
+            width: 10%;
+        }
+
+        h6 {
+            width: 30%;
+
+            span.bg-danger {
+                border-radius: 0.75rem;
+                color: $color-white;
+                font-size: 0.625rem;
+                text-transform: uppercase;
+            }
+        }
+    }
+}

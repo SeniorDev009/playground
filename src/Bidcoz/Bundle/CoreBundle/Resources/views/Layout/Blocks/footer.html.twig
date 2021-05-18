@@ -1,0 +1,91 @@
+<footer id="footer" class="footer navbar-inverse">
+    {# if not organization is defined and not auction is defined %}
+        <table class="footer-news row" width="100%" border="0">
+            <tr>
+                <td class="footer-news-links col-sm-3">
+                    <div class="heading">
+                        <a href="https://www.causepilot.com" target="_blank">
+                            <img src="{{ asset('img/logo/logo_white.png') }}" width="130">
+                        </a>
+                    </div>
+                    <ul>
+                        <li><a href="https://www.causepilot.com/about">About</a></li>
+                    </ul>
+                </td>
+
+                <td class="footer-links col-sm-3">
+                    <div class="heading">Important Links</div>
+                    <ul>
+                        <li><a href="{{ path('legal_privacy') }}">Privacy Policy</a></li>
+                        <li><a href="{{ path('legal_user_terms') }}">User Terms</a></li>
+                        <li><a href="{{ path('legal_organization_terms') }}">Organization Terms</a></li>
+                        <li><a href="{{ path('legal_dmca') }}">DMCA</a></li>
+                        <li><a href="https://www.causepilot.com/contact">Contact</a></li>
+                    </ul>
+                </td>
+
+                <td class="footer-news-announce col-sm-3">
+                    <div class="heading">Updates</div>
+                    <ul>
+                        <li>Free subscription will expire 9-30-15</li>
+                        <li>50% off promotion will run through 12-31-15</li>
+                        <li>Get free downloads when you sign up for Get Instant Access</li>
+                    </ul>
+                </td>
+
+                <td class="footer-news-social col-sm-3">
+                    <div class="heading">We're Social, Stay Connected and Share!</div>
+                    <ul class="social-icons">
+                        <li>
+                            <a href="https://www.facebook.com/causepilot" target="_blank">
+                                <img src="{{ asset('img/facebook-icon.png') }}" width="80">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://twitter.com/causepilot" target="_blank">
+                                <img src="{{ asset('img/twitter-icon.png') }}" width="80">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.linkedin.com/company/causepilot" target="_blank">
+                                <img src="{{ asset('img/linkedin-icon.png') }}" width="80">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fcausepilot.com&amp;media=http%3A%2F%2Fcausepilot.com%2Ftemplates%2Fdefault%2Fimages%2Fpinterest.png&amp;description=Essential+tools+for+school+and+nonprofit+fundraising%21" target="_blank">
+                                <img src="{{ asset('img/pinterest-icon.png') }}" width="80">
+                            </a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+
+        <div class="copyright">&copy; {{ "now"|date("Y") }} CausePilot</div>
+
+    {% else #}
+        <div class="copyright d-flex align-items-center justify-content-between h-100">
+            {# <a href="https://www.causepilot.com">
+                <img src="{{ asset('img/logo/logo_white.png') }}" width="130">
+            </a> #}
+            <div class="copyright-text">&copy; {{ "now"|date("Y") }} CausePilot</div>
+
+            <ul>
+                <li><a href="{{ path('legal_privacy') }}">Privacy Policy</a></li>
+                <li><a href="https://www.causepilot.com/aboutus">Our Story</a></li>
+                <li><a href="{{ path('legal_user_terms') }}">User Terms</a></li>
+                <li><a href="{{ path('legal_organization_terms') }}">Organization Terms</a></li>
+                <li><a href="{{ path('legal_dmca') }}">DMCA</a></li>
+            </ul>
+        </div>
+    {# endif #}
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-44816960-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</footer>

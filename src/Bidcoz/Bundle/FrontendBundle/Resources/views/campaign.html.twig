@@ -1,0 +1,52 @@
+{% extends 'BidcozFrontendBundle::organization.html.twig' %}
+
+{% set campaignParams = {orgSlug: organization.slug, campaignSlug: campaign.slug} %}
+
+{% block title %}CausePilot - {{ campaign.name }} - {{ organization.name }}{% endblock %}
+
+{% block beforeContent %}
+    {{ parent() }}
+
+    <div class="breadcrumbs">
+        <a href="{{ path('campaign_home', campaignParams) }}" class="d-flex align-items-center">
+            {% include 'BidcozCoreBundle:Components:icon.html.twig' with { icon: 'arrow-left', class: 'icon-md' } %}
+            Back
+        </a>
+    </div>
+{% endblock %}
+
+{% block sidebar '' %}
+
+{% block sponsorships %}
+    {# If the have sponsorships enabled. #}
+    {% if campaign.hasSponsorship and is_granted('SPONSORSHIP', organization) %}
+        {% set sponsorships = campaign_sponsorships(campaign) %}
+        {# If the have any actual sponsorships. #}
+        {% if sponsorships|length %}
+            {% include 'BidcozCoreBundle:Layout:Blocks\\sponsorship\\main.html.twig' with { sponsorships: sponsorships } %}
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+{% block shareButtons %}
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57056865a33cb93d"></script>
+{% endblock %}
+
+{% block toast %}
+    <div class="toast-container">
+        {% set close = true %}
+        {% include 'BidcozCoreBundle:Layout/Blocks:alerts.html.twig' %}
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% if organization is defined or campaign is defined %}
+        <link rel="stylesheet" href="/css/manage.css?v2">
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="/components/font-awesome/js/all.js"></script>
+{% endblock %}

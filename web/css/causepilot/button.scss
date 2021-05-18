@@ -1,0 +1,190 @@
+.btn {
+    align-items: center;
+    background-color: $color-purple;
+    border: 0;
+    border-radius: 0.375rem;
+    color: $color-white;
+    cursor: pointer;
+    display: flex;
+    font-size: 0.875rem;
+    font-weight: 700;
+    height: 3rem;
+    justify-content: center;
+    margin: 0 auto;
+    min-width: 10rem;
+    padding: 0 1.25rem;
+    width: auto;
+
+    &:not(:disabled) {
+        &.btn-default,
+        &.user-lookup,
+        &.btn-info,
+        &.secondary,
+        &.btn-secondary {
+            border: .18rem;
+            border-style: solid;
+        }
+
+        &.btn-info,
+        &.secondary,
+        &.btn-secondary {
+            border-color: $color-purple;
+            background-color: $color-white;
+            color: $color-purple;
+        }
+
+        &.btn-clear {
+            background-color: $color-white;
+            color: $color-gray-50;
+        }
+
+        &.user-lookup {
+            background-color: $color-purple;
+            // background-color: $brand-primary;
+            border-color: $color-purple;
+            // border-color: $brand-primary;
+            color: $color-white;
+            border-radius: 0.25rem; 
+        }
+
+        &.btn-link {
+            color: $color-purple !important;
+            background-color: transparent !important;
+            border: 0;
+
+            &:hover,
+            &:focus,
+            &:active {
+                color: $color-purple !important;
+                background-color: transparent !important;
+            }
+        }
+
+        &.btn-danger {
+            background-color: $color-red !important;
+
+            &:hover {
+                background-color: $color-red !important;
+            }
+
+            .watchlist .auction-item-details & {
+                height: 2rem;
+            }
+        }
+
+        .sa-confirm-button-container & {
+            background-color: transparent !important;
+            border: 0 !important;
+            color: $color-gray-40 !important;
+            outline: 0 !important;
+
+            &:focus {
+                outline: 0 !important;
+            }
+        }
+
+        &.btn-ghost {
+            background-color: transparent !important;
+            color: $color-white !important;
+            border: 0.125rem solid $color-white !important;
+        }
+
+        &.disabled,
+        &.disabled:hover {
+            background-color: $color-gray-00 !important;
+            border-color: $color-gray-00 !important;
+            color: $color-gray-20 !important;
+            cursor: not-alloweds;
+        }
+    }
+
+    .theme-video-panel & {
+        @include media-breakpoint-down('sm') {
+            width: 100%;
+        }
+    }
+
+    &.btn-default {
+        color: $color-gray-45;
+        border-color: $color-gray-45;
+        background-color: $color-white;
+    }
+
+    .fa,
+    .glyphicon {
+        margin-right: 4px;
+    }
+
+    &.manage-item-categories {
+        margin-left: 4px;
+    }
+
+    &.bid-sheet {
+        margin-bottom: 4px;
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &:disabled {
+        background-color: $color-gray-00 !important;
+        color: $color-gray-20 !important;
+    }
+
+    &.full-width {
+        width: 100%;
+    }
+
+    &.no-min {
+        min-width: 0;
+    }
+
+    &.btn-sm {
+        height: 2.5rem;
+    }
+
+    &.btn-xs {
+        height: 1.5rem;
+        padding: 0.5rem;
+    }
+
+    &.fit-content {
+        width: fit-content !important;
+    }
+
+    &.btn-ghost {
+        background-color: transparent !important;
+        color: $color-white !important;
+        border: 0.125rem solid $color-white !important;
+    }
+
+    &.search-button,
+    &.search-button:hover,
+    &.search-button:focus,
+    &.search-button:active {
+        color: $color-gray-50 !important;
+    }
+
+    &.hidden {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    &.btn-dark {
+        background-color: $color-power-blue;
+    }
+
+    &.user-selected {
+        background-color: $brand-primary !important;
+        border-color: $brand-primary !important;
+    }
+}
+
+.actions {
+    padding: 0.5rem 0;
+}
+
+.btn-group {
+    display: inline-flex;
+}

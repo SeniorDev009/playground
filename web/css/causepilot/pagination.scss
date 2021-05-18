@@ -1,0 +1,15 @@
+.pagination {
+  display: flex;
+  li {
+    a,
+    span {
+      text-decoration: none;
+
+      &:hover,
+      &:focus,
+      &:active {
+        text-decoration: underline;
+      }
+    }
+  }
+}
