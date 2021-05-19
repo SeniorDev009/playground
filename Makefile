@@ -14,7 +14,7 @@ stop:
 .PHONY: stop
 
 clear-cache:
-	$(PHP_CLI_RUN_CMD) rm -rf app/cache/* app/logs/dev/* && mkdir -p app/cache app/logs/dev && chmod 0777 app/cache app/logs/dev
+	$(PHP_CLI_RUN_CMD) rm -rf app/cache/* app/logs/* && mkdir -p app/cache app/logs/dev && chmod -R 0777 app/cache app/logs
 .PHONY: clear-cache
 
 cli:

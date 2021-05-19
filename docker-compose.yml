@@ -13,7 +13,7 @@ services:
             - .docker/nginx/conf.d:/etc/nginx/conf.d/
             - .docker/certs:/etc/http-certs
             - .:/var/www/
-            - .docker/data/log/nginx:/var/log
+            - .docker/data/log/nginx:/var/log/nginx
         depends_on:
             - php-fpm
         networks:
@@ -27,7 +27,7 @@ services:
             - .env
         volumes:
             - .:/var/www
-            - .docker/data/log/fpm:/var/log
+            - .docker/data/log/fpm:/var/log/fpm
         depends_on:
             - php-cli
         networks:
@@ -41,7 +41,7 @@ services:
             - .env
         volumes:
             - .:/var/www
-            - .docker/data/log/cli:/var/log
+            - .docker/data/log/cli:/var/log/cli
         networks:
             - app
 networks:
