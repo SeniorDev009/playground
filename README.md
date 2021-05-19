@@ -17,7 +17,7 @@ To get stated quickly:
 ```sh
 make init start 
 ```
-This will build and start the containers
+This will build and start the containers.  NOTE: ensure that no other cli jobs/processes are running before running this command.
 
 
 Run the docker-compose to launch containers
@@ -35,12 +35,20 @@ Node/Bower etc.
 ------------------------
 Bower and npm run whenever the container run `make deploy` You can also run each one individually, see Makefile for more.
 
-Watcher
+CSS
 ----------
 
 For css Compilation we are using SASS (with scss) and Gulp. Just run: 
 ```sh 
 make css
+```
+
+Cache and Permission Issues
+-----------------------------
+
+If you are getting errors about directories or permission issues, the following will recreate the app and log directories.
+```sh
+make clear-cache
 ```
 
 Command Line
