@@ -34,6 +34,7 @@ class User
 
     /**
      * @Assert\Valid
+     * @Serialize\Expose
      */
     protected $address;
 

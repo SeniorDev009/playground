@@ -8,37 +8,31 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * A Value object for an address.
  *
- * @ORM\Embeddable
  */
 class Address
 {
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\NotBlank(groups={"Profile"})
      * @Assert\Length(max=255, groups={"Profile"})
      */
     protected $address1;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $address2;
 
     /**
-     * @ORM\Column(type="string", length=128, nullable=true)
      * @Assert\NotBlank(groups={"Profile"})
      * @Assert\Length(max=128, groups={"Profile"})
      */
     protected $city;
 
     /**
-     * @ORM\Column(type="string", length=2, nullable=true)
      * @Assert\NotBlank(groups={"Profile"})
      */
     protected $state;
 
     /**
-     * @ORM\Column(type="string", length=5, nullable=true)
      * @Assert\NotBlank(groups={"Profile"})
      * @Assert\Regex(pattern="/\d{5}/", groups={"Profile"})
      */
